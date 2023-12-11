@@ -1,0 +1,1 @@
+INSERT INTO projects (id, description, name) VALUES (3, "Description about project1", "Project1");
