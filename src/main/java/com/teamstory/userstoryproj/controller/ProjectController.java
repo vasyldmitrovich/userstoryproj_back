@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -31,8 +32,7 @@ public class ProjectController {
     }
 
     @GetMapping("/{id:[\\d]+}")
-    Project getProject(@PathVariable Long id) {
-        Project project = new Project();
+    Optional<Project> getProject(@PathVariable Long id) {
         return projectService.getById(id);
     }
 

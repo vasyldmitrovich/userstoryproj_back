@@ -7,6 +7,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -24,8 +25,8 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Project getById(Long id) {
-        return projectRepository.getReferenceById(id);
+    public Optional<Project> getById(Long id) {
+        return projectRepository.findById(id);
     }
 
     @Override
