@@ -1,6 +1,6 @@
 # User Story Project
 
-<img src="back.png" style="width: 600px; height: 350px;"><br>
+<img src="back01.png" style="width: 600px; height: 350px;"><br>
 <br>
 
 ## Project Overview
