@@ -1,5 +1,8 @@
 # User Story Project
 
+<img src="back.png" style="width: 600px; height: 350px;"><br>
+<br>
+
 ## Project Overview
 
 This project serves as the back-end component of the User Story, a web application that allows users to create projects, join them, and manage tasks related to specific stories.
