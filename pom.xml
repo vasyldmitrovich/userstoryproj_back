@@ -48,12 +48,22 @@
             <scope>runtime</scope>
         </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
             <version>3.3.1</version>
-        </dependency>
-
+        </dependency> -->
+        
+		<!-- H2 Database -->
+    	<dependency>
+        	<groupId>com.h2database</groupId>
+        	<artifactId>h2</artifactId>
+        	<scope>runtime</scope>
+    	</dependency>
+        <dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
