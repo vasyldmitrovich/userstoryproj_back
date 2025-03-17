@@ -44,7 +44,7 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
         UserDetails user = User.builder()
             .username("admin")
-            .password(passwordEncoder.encode("password")) // Пароль збережено в закодованому вигляді
+            .password(passwordEncoder.encode("password")) // Password stored in encrypted form
             .roles("USER")
             .build();
 
