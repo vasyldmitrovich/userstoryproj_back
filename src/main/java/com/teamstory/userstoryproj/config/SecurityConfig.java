@@ -3,6 +3,7 @@ package com.teamstory.userstoryproj.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -13,8 +14,6 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.teamstory.userstoryproj.service.impl.UserServiceImpl;
-
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(
@@ -23,9 +22,9 @@ import com.teamstory.userstoryproj.service.impl.UserServiceImpl;
     jsr250Enabled = true) // Enable @PreAuthorize, @Secured, and @RolesAllowed
 public class SecurityConfig {
 
-    private final UserServiceImpl userService;
+    private final UserDetailsService userService;
 
-    public SecurityConfig(UserServiceImpl userService) {
+    public SecurityConfig(UserDetailsService userService) {
         this.userService = userService;
     }
 
@@ -42,6 +41,7 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance();
         // TODO: Temporary decision, for production change to BCryptPasswordEncoder
+        // return new BCryptPasswordEncoder();
     }
 
     @Bean

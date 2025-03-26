@@ -7,8 +7,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -17,12 +15,9 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService, UserDetailsService {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.passwordEncoder = NoOpPasswordEncoder.getInstance();
-        // TODO: Temporary decision, for production change to BCryptPasswordEncoder
     }
 
     /**
@@ -38,7 +33,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
      */
     @Override
     public UserEntity saveUser(UserEntity user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword())); // Encrypt password before saving
         return userRepository.save(user);
     }
 
