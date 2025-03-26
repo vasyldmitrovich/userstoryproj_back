@@ -20,17 +20,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         this.userRepository = userRepository;
     }
 
-    /**
-     * Find a user by username.
-     */
     @Override
     public Optional<UserEntity> findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
-    /**
-     * Save a new user with an encrypted password.
-     */
     @Override
     public UserEntity saveUser(UserEntity user) {
         return userRepository.save(user);

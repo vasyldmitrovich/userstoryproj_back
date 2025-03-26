@@ -51,7 +51,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/", "/css/**").permitAll() // Allow home and styles
                 .requestMatchers("/projects/**").authenticated() // Restrict access to projects
-                .requestMatchers("/projectsAll/**").authenticated() // Restrict access to projectsAll
+                .requestMatchers("/userpage/**").authenticated() // Restrict access to userpage
+                .requestMatchers("/adminpage/**").authenticated() // Restrict access to adminpage
                 .anyRequest().authenticated()
             )
             .formLogin(login -> login

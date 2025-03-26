@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>User page</title>
 </head>
 <body>
-    <h1>Projects</h1>
+    <h1>This is User page</h1>
     <a href="/"><button>Home</button></a>
     <a href="/logout"><button>Logout</button></a>
 
-    <ul>
-        <li th:each="project : ${projects}">
-            <strong th:text="${project.name}"></strong>: 
-            <span th:text="${project.description}"></span>
-        </li>
-    </ul>
+    <p th:text="${message}">Here will be message</p>
 </body>
 </html>

@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Welcome to Projects application</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <h1>Welcome to User Story Project</h1>
     
     <div>
-        <a href="/projectsAll"><button>Projects</button></a>
+        <a href="/userpage"><button>User Page</button></a>
+        <a href="/adminpage"><button>Admin Page</button></a>
         <!-- Show Login or Logout depending on authentication status -->
         <a href="/login" th:if="${!isAuthenticated}"><button>Login</button></a>
         <a href="/logout" th:if="${isAuthenticated}"><button>Logout</button></a>

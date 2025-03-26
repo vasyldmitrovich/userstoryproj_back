@@ -2,6 +2,7 @@ package com.teamstory.userstoryproj.controller;
 
 import java.util.List;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -33,10 +34,18 @@ public class HomeController {
         return "login"; // Render login.html
     }
 
-    @GetMapping("/projectsAll")
+    @GetMapping("/userpage")
+    @PreAuthorize("hasRole('USER')")
     public String getAllProjects(Model model) {
+        model.addAttribute("message", "Hello this is message for userpage page!");
+        return "userpage";
+    }
+
+    @GetMapping("/adminpage")
+    @PreAuthorize("hasRole('ADMIN')") // Only admins can create
+    public String adminPage(Model model) {
         List<Project> projects = projectService.listAll();
         model.addAttribute("projects", projects);
-        return "projects";
+        return "adminpage";
     }
 }
