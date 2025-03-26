@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
@@ -16,6 +17,10 @@ import com.teamstory.userstoryproj.service.impl.UserServiceImpl;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity(
+    prePostEnabled = true,
+    securedEnabled = true,
+    jsr250Enabled = true) // Enable @PreAuthorize, @Secured, and @RolesAllowed
 public class SecurityConfig {
 
     private final UserServiceImpl userService;

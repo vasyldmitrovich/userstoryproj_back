@@ -15,3 +15,9 @@ VALUES (1, 'admin', 'password1234');
 INSERT INTO user_roles (user_id, role) 
 VALUES (1, 'USER'),
        (1, 'ADMIN');
+       
+INSERT INTO users (id, username, password) 
+VALUES (2, 'user', 'password5678');
+
+INSERT INTO user_roles (user_id, role) 
+VALUES (2, 'USER');
