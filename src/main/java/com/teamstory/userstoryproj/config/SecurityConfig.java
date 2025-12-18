@@ -49,7 +49,7 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/css/**").permitAll() // Allow home and styles
+                .requestMatchers("/", "/css/**","/h2-console//login.do").permitAll() // Allow home and styles
                 .requestMatchers("/projects/**").authenticated() // Restrict access to projects
                 .requestMatchers("/userpage/**").authenticated() // Restrict access to userpage
                 .requestMatchers("/adminpage/**").authenticated() // Restrict access to adminpage

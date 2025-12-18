@@ -42,7 +42,7 @@ public class HomeController {
     }
 
     @GetMapping("/adminpage")
-    @PreAuthorize("hasRole('ADMIN')") // Only admins can create
+    @PreAuthorize("hasRole('ADMIN')") // Only admins can open this page
     public String adminPage(Model model) {
         List<Project> projects = projectService.listAll();
         model.addAttribute("projects", projects);
